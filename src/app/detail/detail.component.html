@@ -1,0 +1,20 @@
+<section class="card-detail container" >
+   <div class="row mt-5" >
+      <div class="image  col-12  mt-5 pb-5">
+         <div class="card">
+            <img class="card-img-top " src={{object.url}} alt="product-card">
+            <div class="card-body">
+              <p class=" category card-text font-weight-bold kaushan " >Category - {{object.category}}</p>
+              <h6 class="card-title font-weight-bold" >{{object.name}}</h6>
+              <p class=" card-text font-weight-bold " >{{object.price}}</p>
+               <div class="mt-5 col-4 pl-0">
+                  <input type="number" name="test_name"  value="1" min="1">
+               </div>
+            </div>
+         </div>
+         <div class="text-center btn-border mt-1">
+            <button type="button" class="btn btn-lg btn-primary font-weight-bold" name="{{object.id}}" (click)="addToCart($e)">Add To Cart</button>
+         </div>
+      </div>
+   </div>
+</section>

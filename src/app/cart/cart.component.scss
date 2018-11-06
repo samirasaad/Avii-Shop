@@ -1,0 +1,26 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+
+.empty{
+  font-size:40px;
+  margin-top: 200px;
+}
+.card-img-top{
+  width:30%;
+  height:100%;
+}
+.card{
+  flex-direction: row;
+}
+.delete-icon{
+  height:50px;
+}
+.btn-primary,.btn-primary:hover{
+  background-color: black;
+  border:none;
+
+}
+.line{
+  border-color:#000000;
+
+}

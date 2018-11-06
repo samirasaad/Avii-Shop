@@ -1,0 +1,79 @@
+ <!-- slider  -->
+<ngb-carousel class="slider">
+   <ng-template ngbSlide>
+      <img src="../../assets/images/slider-1.jpg" class="w-100 "   alt=" first slide">
+      <div class="carousel-caption">
+         <p class="font-family-bold kaushan mb-0 mt-0 ">live</p>
+      </div>
+   </ng-template>
+   <ng-template ngbSlide>
+      <img src="../../assets/images/slider-2.jpg"  class="w-100" alt=" second slide">
+      <div class="carousel-caption">
+         <p class="font-family-bold kaushan mb-0 mt-0 ">love</p>
+      </div>
+   </ng-template>
+   <ng-template ngbSlide>
+      <img src="../../assets/images/andrew-tanglao-505288-unsplash.jpg" class="w-100"  alt="third slide">
+      <div class="carousel-caption">
+         <p class="font-family-bold kaushan mb-0 mt-0 ">shop</p>
+      </div>
+   </ng-template>
+</ngb-carousel>
+<section class="cards-list container mb-5">
+   <!-- filter input  -->
+   <div class="input-group mt-5">
+      <div class="input-group-prepend">
+         <span class="input-group-text" >
+         <img  class="filter-search-img" src="../../assets/images/magnifier.png">
+         </span>
+      </div>
+      <input type="text" class="form-control"  [(ngModel)]="term" placeholder="search by product name" >
+   </div>
+
+   <!---  grid/list switch button -->
+   <div class="btn-group btn-group-toggle mt-5 ">
+      <label class="btn-dark " ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model" (click)="isGrid = !isGrid">
+      <img class="grid-img" src="../../assets/images/menu.png" alt="grid-veiw" *ngIf="isGrid"/>
+      <img class="list-img" src="../../assets/images/list-with-dots.png" alt="list-veiw" *ngIf="!isGrid"/>
+      </label>
+   </div>
+   <!--  grid veiw -->
+   <div class="row" *ngIf="isGrid ; else list">
+      <div class="image mt-5 col-md-4  col-12"  *ngFor="let item of cardData |filter:term">
+            <div class="card " >
+              <a class="link" routerLink="/detail/{{item.name}}/{{item.category}}/{{item.price}}">
+               <img (click)="getCardId($e)" id="{{item.id}}" class="card-img-top " src={{item.url}} alt="Card image cap">
+             </a>
+               <div class="card-body">
+                  <p class=" category card-text font-weight-bold kaushan " >Category - {{item.category}}</p>
+                  <h6 class="card-title font-weight-bold" >{{item.name}}</h6>
+                  <p class=" card-text font-weight-bold " >{{item.price}}</p>
+               </div>
+            </div>
+         <div class="btn-border text-center mt-1">
+            <button type="button" class="btn btn-lg btn-primary font-weight-bold" name="{{item.id}}" (click)="addToCart($e)">Add To Cart</button>
+         </div>
+      </div>
+   </div>
+   <!--  list veiw -->
+   <ng-template #list>
+      <div class="row ">
+         <div class="image mt-5   col-12 "  *ngFor="let item of cardData |filter:term">
+            <a class="link" routerLink="/detail/{{item.name}}/{{item.category}}/{{item.price}}">
+               <div class="card d-flex flex-row" id="{{item.id}}" (click)="getCardId($e)" >
+                  <img  id="{{item.id}}" class="card-img-top w-25" src={{item.url}} alt="Card image cap">
+                  <div class="card-body" id="{{item.id}}">
+                     <p class=" category card-text font-weight-bold kaushan " id="{{item.id}}">Category - {{item.category}}</p>
+                     <h6 class="card-title font-weight-bold" id="{{item.id}}">{{item.name}}</h6>
+                     <p class=" card-text font-weight-bold " id="{{item.id}}">{{item.price}}</p>
+                  </div>
+               </div>
+            </a>
+            <div class="btn-border text-center mt-1">
+               <button type="button" class="btn btn-lg btn-primary font-weight-bold" name="{{item.id}}" (click)="addToCart($e)">Add To Cart</button>
+            </div>
+         </div>
+      </div>
+   </ng-template>
+</section>

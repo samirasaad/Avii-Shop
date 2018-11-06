@@ -1,0 +1,38 @@
+<section class="register pb-5">
+   <div class="text pt-5 mt-5">
+      <h2 class="text-center mt-3 pb-3" >Enter your info to submit order</h2>
+      <hr class="line">
+   </div>
+   <div class="container pt-5 mb-5">
+      <form  name="registerForm" #registerForm="ngForm" (ngSubmit)="submit(registerForm)" novalidate>
+      <div >
+         <div class="form-group">
+            <label class="font-weight-bold">Address</label>
+            <span class="text-danger font-weight-bold "  *ngIf="(address.touched && !address.valid) ||(!address.valid && registerForm.submitted)">
+            *
+            </span>
+            <input type="email" name="address" #address="ngModel" [(ngModel)]="userData.address" class="form-control rounded-0" required>
+         </div>
+         <div class="col-md-4 mb-3 px-0">
+            <label class="font-weight-bold">Phone</label>
+            <span class="text-danger font-weight-bold"  *ngIf="(phone.touched && !phone.valid) ||(!phone.valid && registerForm.submitted)">
+            *
+            </span>
+            <div class="input-group">
+               <input type="text" name="phone" #phone="ngModel" [(ngModel)]="userData.phone" class="form-control rounded-0"  placeholder="000-0000-0000"  required>
+            </div>
+         </div>
+         <div class="col-md-4 mb-3 px-0">
+            <label class="font-weight-bold">Email</label>
+            <span class="text-danger font-weight-bold"  *ngIf="(email.touched && !email.valid) ||(!email.valid && registerForm.submitted)">
+            *
+            </span>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="userData.email" class="form-control rounded-0"  placeholder="name@example.com"  required>
+         </div>
+      </div>
+      <div class="text-center">
+         <button  class="btn btn-primary btn-lg rounded-0">Submit Form</button>
+      </div>
+      </form>
+   </div>
+</section>

@@ -1,0 +1,20 @@
+@import '../../scss/variables';
+@import '../../scss/general';
+.card-detail{
+  .card-img-top{
+    width:30%;
+    height:100%;
+  }
+  .card{
+    flex-direction: row;
+  }
+  .btn-primary,.btn-primary:hover{
+    background-color: black;
+    border:none;
+  }
+  .btn-primary:not(:disabled):not(.disabled):active{
+    background-color:$primaryColor;
+    box-shadow: none;
+  }
+
+}

@@ -1,0 +1,24 @@
+<section class="container mt-5" >
+   <p  *ngIf="!array.length" class="text-center empty text-muted"><strong>your cart is empty</strong></p>
+   <div class="text-center mt-5">
+      <img src="../../assets/images/online-store.png" class="text-center" *ngIf="!array.length">
+   </div>
+   <div class="row" *ngFor=" let item of array">
+      <div class="image col-12 pt-5">
+         <div class="card" >
+            <img class="card-img-top " src={{item.url}} alt="product-card">
+            <div class="card-body col-4">
+              <p class=" category card-text font-weight-bold kaushan ">Category - {{item.category}}</p>
+              <h6 class="card-title font-weight-bold" >{{item.name}}</h6>
+              <p class=" card-text font-weight-bold " >{{item.price}}</p>
+               <div class="mt-5 col-4 pl-0">
+               </div>
+            </div>
+            <div class="mr-5">
+               <img  (click)="deleteProduct()" class="delete-icon text-right mt-5" src="../../assets/images/delete-photo.png" id="{{item.id}}">
+            </div>
+         </div>
+         <hr class="line">
+      </div>
+   </div>
+</section>

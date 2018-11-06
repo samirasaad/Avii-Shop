@@ -1,0 +1,45 @@
+.btn-outline-primary{
+  background-color: transparent;
+  border:none;
+}
+ .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+  background-color: transparent;
+  border-radius: none;
+  color:black;
+}
+.dropdown-toggle::after{
+  display:none;
+}
+.user-img{
+  height:40px;
+  width:40px;
+  border-radius:50%;
+  display: inline-block;
+}
+.cart-img{
+  height:30px;
+  width:30px;
+}
+.dropdown-toggle::after{
+  display:none;
+}
+.dropdown-item:active {
+  background-color: black;
+    a{
+      color:white;
+
+    }
+}
+.navbar{
+  padding-bottom: 0px;
+}
+
+.bink-bg{
+  position: fixed;
+  top:0;
+  width:100%;
+  z-index: 1111;
+  margin: 0 auto;
+  background-color: black;
+
+}
